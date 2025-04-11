@@ -20,9 +20,8 @@ export default function Navbar() {
             <div className={`navbar-right ${isOpen ? "open" : ""}`}>
                 <Link to="/about-us" className="navbar-content">About Us</Link>
                 <Link to="/getProducts" className="navbar-content">Products</Link>
-                <Link to="/create" className="navbar-content">Add Product</Link>
-                <Link to="/update" className="navbar-content">Edit Product</Link>
-                <Link to="/delete" className="navbar-content">Delete Product</Link>
+                <Link to="/contact" className="navbar-content">Contact</Link>
+                <Link to="/settings" className="navbar-content">Settings</Link>
             </div>
         </nav>
     )

@@ -1,0 +1,62 @@
+.home-container {
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 2.5rem;
+    color: black;
+    padding-top: 3rem;
+}
+
+.cursor {
+    display: inline-block;
+    margin-left: 2px;
+    width: 10px;
+    color: rgb(7, 160, 255);
+    animation: blink 0.8s infinite;
+}
+
+.welcome-text {
+    color: black;
+}
+
+.typed-title {
+    color: rgb(7, 160, 255);
+}
+@keyframes blink {
+    0%, 100%{
+        opacity: 1;
+    } 50% {
+        opacity: 0;
+    }
+}
+
+.paragraph-content {
+    font-size: 1.5rem;
+}
+
+.paragraph-content-second {
+    font-size: 1.3rem;
+}
+
+.learn-more-container {
+    padding-top: 40px;
+}
+
+.about-us-btn {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: rgb(7, 160, 255);
+    color: #fff;
+    padding: 10px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.about-us-btn:hover {
+    background-color: rgb(2, 80, 175);
+}
