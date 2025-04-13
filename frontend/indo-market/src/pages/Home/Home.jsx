@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "../Home/Home.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
     const fullTitle = "IndoMarket";
     const [typedTitle, setTypedTitle] = useState("");
     const [titleIndex, setTitleIndex] = useState(0);
     const [isTyping, setIsTyping] = useState(true); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         const intervalTime = isTyping ? 200 : 150; 
@@ -29,6 +30,11 @@ export default function Home() {
         }
     }, [titleIndex, isTyping, fullTitle, typedTitle]);
 
+
+    const aboutUsBtn = () => {
+        navigate("/about-us");
+    }
+
     return (
         <>
             <section className="home-container">
@@ -44,12 +50,15 @@ export default function Home() {
                         Your trusted Indonesian marketplace - bringing the spirit of 
                         traditional markets into the modern world
                     </p>
-                    <p className="paragraph-content-second">
+                    <p className="paragraph-content">
                         Products are made from Indonesia to Indonesian
+                    </p>
+                    <p className="paragraph-content">
+                        Your gateway for Indonesian products and craftmanship
                     </p>
                 </div>
                 <div className="learn-more-container">
-                    <button className="about-us-btn">Learn More About Us</button>
+                    <button className="about-us-btn" onClick={aboutUsBtn}>Learn More About Us</button>
                 </div>
             </section>
         </>
