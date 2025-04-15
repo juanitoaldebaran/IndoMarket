@@ -30,7 +30,7 @@
 }
 
 .typed-title {
-    color: rgb(7, 160, 255);
+    color: rgb(0, 62, 248);
 }
 @keyframes blink {
     0%, 100%{
@@ -71,4 +71,33 @@
 
 .about-us-btn:hover {
     background-color: rgb(2, 80, 175);
+}
+
+@media (max-width: 768px) {
+
+    .about-us-overview {
+        padding: 60px 20px;
+    }
+
+    .about-us-header {
+      font-size: 36px;
+    }
+  
+    .overview-text {
+      font-size: 18px;
+    }
+  
+    .message-text {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .overview-message {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .footer-content {
+      font-size: 16px;
+    }
 }

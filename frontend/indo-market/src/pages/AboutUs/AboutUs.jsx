@@ -1,34 +1,67 @@
 import "../AboutUs/AboutUs.css";
+import CarouselCard from "../../components/CarouselCard/CarouselCard";
 import { useEffect, useState } from "react";
 
 export default function AboutUs() {
-    const valueText = "-We help businesses create their own products";
+    const valueText = "We help businesses create their own products";
     const [typedText, setIsTypedText] = useState("");
     const [isTyping, setIsTyping] = useState(true);
     const [textIndex, setTextIndex] = useState(0);
 
-    useEffect(() => {
-        let timeOut;
-        const timeInterval = isTyping ? 100 : 80;
+    const journeyData = [
+        {
+            id: 1,
+            year: "2024",
+            title: "Established",
+            description: "IndoMarket was found in 2024 to solve the issues for several companies facing in economical recession",
+        },
+        {
+            id: 2,
+            year: "2025",
+            title: "Developed",
+            description: "We scale up IndoMarket into several of sectors focusing on products growth",
+        },
+        {
+            id: 3,
+            year: "2025",
+            title: "Partnership",
+            description: "Gained partnership with Indonesian's companies that enrich and focus on product development",
+        },
+        {
+            id: 4,
+            year: "2025",
+            title: "Found",
+            description: "IndoMarket was found in 2024 to solve the issues for several companies facing in economical recession",
+        },
+        {
+            id: 5,
+            year: "2025",
+            title: "Found",
+            description: "IndoMarket was found in 2024 to solve the issues for several companies facing in economical recession",
+        },
+    ];
 
-        if (isTyping && textIndex < valueText.length) {
-            timeOut = setTimeout(() => {
-                setIsTypedText(prevText => prevText + valueText.charAt(textIndex));
-                setTextIndex(prevIndex => prevIndex + 1);
-            }, timeInterval);
-        } else if (!isTyping && textIndex > 0) {
-            timeOut = setTimeout(() => {
-                setIsTypedText(prevText => prevText.slice(0, -1));
-                setTextIndex(prevIndex => prevIndex - 1);
-            }, timeInterval);
-        } else if (textIndex === valueText.length) {
-            setIsTyping(false);
-        } else if (textIndex === 0) {
-            setIsTyping(true);
-        }
+   useEffect(() => {
+    let timeOut;
+    const timeInterval = isTyping ? 200 : 150;
+    if (isTyping && textIndex < valueText.length) {
+        timeOut = setTimeout(() => {
+            setIsTypedText(prevText => prevText + valueText.charAt(textIndex));
+            setTextIndex(prevIndex => prevIndex + 1);
+        }, timeInterval);
+    } else if (!isTyping && textIndex > 0) {
+        timeOut = setTimeout(() => {
+            setIsTypedText(prevText => prevText.slice(0, -1));
+            setTextIndex(prevIndex => prevIndex - 1);
+        }, timeInterval);
+    } else if (textIndex === valueText.length) {
+        setIsTyping(false);
+    } else if (textIndex === 0) {
+        setIsTyping(true);
+    }
 
-        return () => clearTimeout(timeOut);
-    }, [valueText, typedText, isTyping, textIndex]);
+    return () => clearTimeout(timeOut);
+   }, [valueText, typedText, isTyping, textIndex]);
 
     return (
         <div className="about-us-container">
@@ -61,18 +94,25 @@ export default function AboutUs() {
                         fashion, home goods, and more.
                     </p>
                 </div>
+                <div className="overview-message">
+                    <h2 className="message-title">
+                        Why Choose <span className="message-title-span">Us?</span>
+                    </h2>
+                    <p className="message-text">
+                    IndoMarket stands out by combining innovative solutions, customer-centric services, and unmatched product quality. 
+                    We prioritize trust, transparency, and timely delivery, ensuring every customer experience exceeds expectations. 
+                    Our dedicated team constantly adapts to market trends, allowing us to deliver future-ready solutions today.
+                    </p>
+                </div>
             </section>
 
             <section className="about-us-journey">
                 <h1 className="about-us-header">Our Journey</h1>
+                <CarouselCard journeyData={journeyData}/>
             </section>
 
             <section className="about-us-services">
                 <h1 className="about-us-header">Our Services</h1>
-            </section>
-
-            <section className="about-us-contact">
-                <h1 className="about-us-header">Contact Us</h1>
             </section>
         </div>
     );
