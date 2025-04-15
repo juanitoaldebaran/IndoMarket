@@ -1,3 +1,80 @@
 .about-us-container {
-    
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.about-us-container section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+}
+
+.about-us-overview {
+    background-color: rgb(255, 255, 255);
+}
+
+.about-us-header {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    color: #222;
+}
+
+.span-about-us {
+    color: rgb(0, 62, 248);
+}
+
+.overview-text {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+}
+
+.blinking-cursor {
+    color: rgb(0, 62, 248);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    } 50% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+.overview-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.532);
+    text-align: center;
+    border-radius: 14px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.overview-message:hover {
+    transform: translateY(-20px);
+    box-shadow: 4px 8px 16px rgba(rgb(26, 3, 3), rgb(0, 207, 0), rgb(7, 101, 7), alpha);
+}
+
+.message-text {
+    width: 100%;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.message-title-span {
+    color: rgb(0, 62, 248);
 }
