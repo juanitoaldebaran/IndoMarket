@@ -1,5 +1,6 @@
 import "../AboutUs/AboutUs.css";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
+import Card from "../../components/Card/Card";
 import { useEffect, useState } from "react";
 
 export default function AboutUs() {
@@ -40,6 +41,29 @@ export default function AboutUs() {
             description: "IndoMarket was found in 2024 to solve the issues for several companies facing in economical recession",
         },
     ];
+
+    const serviceProduct = [
+        {
+            id: 1,
+            name: "Add Products",
+            description: "We help customer to add products",
+        },
+        {
+            id: 2,
+            name: "View Products",
+            description: "We help customer to view products",
+        },
+        {
+            id: 3,
+            name: "Edit Products",
+            description: "We help customer to edit products",
+        },
+        {
+            id: 4,
+            name: "Delete Products",
+            description: "We help customer to delete products",
+        },
+    ]
 
    useEffect(() => {
     let timeOut;
@@ -107,12 +131,17 @@ export default function AboutUs() {
             </section>
 
             <section className="about-us-journey">
-                <h1 className="about-us-header">Our Journey</h1>
+                <h1 className="about-us-header">
+                    Our <span className="span-about-us">Journey</span>
+                </h1>
                 <CarouselCard journeyData={journeyData}/>
             </section>
 
             <section className="about-us-services">
-                <h1 className="about-us-header">Our Services</h1>
+                <h1 className="about-us-header">
+                    Our <span className="span-about-us">Services</span> 
+                    <Card serviceProduct={serviceProduct} />
+                </h1>
             </section>
         </div>
     );
