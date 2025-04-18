@@ -45,25 +45,25 @@ export default function AboutUs() {
     const serviceProduct = [
         {
             id: 1,
-            name: "Add Products",
-            description: "We help customer to add products",
+            name: "Product Management",
+            description: "Streamline your product catalog with our enterprise-grade management system designed for seamless integration and scalability across multiple sales channels.",
         },
         {
             id: 2,
-            name: "View Products",
-            description: "We help customer to view products",
+            name: "Inventory Visualization",
+            description: "Gain real-time insights with advanced analytics dashboards that transform complex inventory data into actionable business intelligence.",
         },
         {
             id: 3,
-            name: "Edit Products",
-            description: "We help customer to edit products",
+            name: "Content Enhancement",
+            description: "Elevate your product listings with our content optimization tools that drive engagement and increase conversion rates through rich media support.",
         },
         {
             id: 4,
-            name: "Delete Products",
-            description: "We help customer to delete products",
+            name: "Product Lifecycle Management",
+            description: "Efficiently manage your product portfolio from introduction to retirement with our comprehensive lifecycle management solution.",
         },
-    ]
+    ];
 
    useEffect(() => {
     let timeOut;

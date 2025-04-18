@@ -1,0 +1,75 @@
+.card-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    gap: 2.5rem;
+    min-height: 450px;
+}
+
+.card-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.prev-arrow {
+    left: 15px;
+}
+
+.next-arrow {
+    right: 15px;
+}
+
+.service-container {
+    width: 240px;
+    height: 400px;
+    box-shadow: 15px 20px 30px rgb(234, 234, 255);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.service-container.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.service-container:not(.active) {
+    transform: scale(0.95);
+}
+
+.service-container:hover:not(.active) {
+    opacity: 0.7;
+    transform: scale(1);
+}
+
+.service-name {
+    font-size: 1.8rem;
+    color: rgb(0, 26, 255);
+}
+
+.service-description {
+    font-size: 1rem;
+    font-weight: 200;
+    text-align: justify;
+}
