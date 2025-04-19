@@ -1,6 +1,7 @@
 import "../AboutUs/AboutUs.css";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
 import Card from "../../components/Card/Card";
+import Footer from "../../components/Footer/Footer";
 import { useEffect, useState } from "react";
 
 export default function AboutUs() {
@@ -88,61 +89,70 @@ export default function AboutUs() {
    }, [valueText, typedText, isTyping, textIndex]);
 
     return (
-        <div className="about-us-container">
-            <section className="about-us-overview">
-                <h1 className="about-us-header">
-                    About <span className="span-about-us">Us</span>
-                </h1>
-                <div className="overview-content">
-                    <p className="overview-text">{typedText}<span className="blinking-cursor">|</span></p>
-                </div>
-                <div className="overview-message">
-                    <h2 className="message-title">
-                        What is Our <span className="message-title-span">Mission?</span>
-                    </h2>
-                    <p className="message-text">
-                        At IndoMarket, we are committed to delivering quality, innovation, and excellence in every product we offer.
-                        Established with the vision to revolutionize the retail experience, we have grown into a leading marketplace
-                        that connects customers with a wide range of premium products across various industries, including electronics,
-                        fashion, home goods, and more. 
-                    </p>
-                </div>
-                <div className="overview-message">
-                    <h2 className="message-title">
-                        What is Our <span className="message-title-span">Value?</span>
-                    </h2>
-                    <p className="message-text">
-                        At IndoMarket, we are committed to delivering quality, innovation, and excellence in every product we offer.
-                        Established with the vision to revolutionize the retail experience, we have grown into a leading marketplace
-                        that connects customers with a wide range of premium products across various industries, including electronics,
-                        fashion, home goods, and more.
-                    </p>
-                </div>
-                <div className="overview-message">
-                    <h2 className="message-title">
-                        Why Choose <span className="message-title-span">Us?</span>
-                    </h2>
-                    <p className="message-text">
-                    IndoMarket stands out by combining innovative solutions, customer-centric services, and unmatched product quality. 
-                    We prioritize trust, transparency, and timely delivery, ensuring every customer experience exceeds expectations. 
-                    Our dedicated team constantly adapts to market trends, allowing us to deliver future-ready solutions today.
-                    </p>
-                </div>
-            </section>
+        <div className="page-wrapper">
+            <div className="about-us-container">
+                <section className="about-us-overview">
+                    <h1 className="about-us-header">
+                        About <span className="span-about-us">Us</span>
+                    </h1>
+                    <div className="overview-content">
+                        <p className="overview-text">{typedText}<span className="blinking-cursor">|</span></p>
+                    </div>
+                    <div className="overview-message">
+                        <h2 className="message-title">
+                            What is Our <span className="message-title-span">Mission?</span>
+                        </h2>
+                        <p className="message-text">
+                            At IndoMarket, we are committed to delivering quality, innovation, and excellence in every product we offer.
+                            Established with the vision to revolutionize the retail experience, we have grown into a leading marketplace
+                            that connects customers with a wide range of premium products across various industries, including electronics,
+                            fashion, home goods, and more. 
+                        </p>
+                    </div>
+                    <div className="overview-message">
+                        <h2 className="message-title">
+                            What is Our <span className="message-title-span">Value?</span>
+                        </h2>
+                        <p className="message-text">
+                            At IndoMarket, we are committed to delivering quality, innovation, and excellence in every product we offer.
+                            Established with the vision to revolutionize the retail experience, we have grown into a leading marketplace
+                            that connects customers with a wide range of premium products across various industries, including electronics,
+                            fashion, home goods, and more.
+                        </p>
+                    </div>
+                    <div className="overview-message">
+                        <h2 className="message-title">
+                            Why Choose <span className="message-title-span">Us?</span>
+                        </h2>
+                        <p className="message-text">
+                        IndoMarket stands out by combining innovative solutions, customer-centric services, and unmatched product quality. 
+                        We prioritize trust, transparency, and timely delivery, ensuring every customer experience exceeds expectations. 
+                        Our dedicated team constantly adapts to market trends, allowing us to deliver future-ready solutions today.
+                        </p>
+                    </div>
+                </section>
 
-            <section className="about-us-journey">
-                <h1 className="about-us-header">
-                    Our <span className="span-about-us">Journey</span>
-                </h1>
-                <CarouselCard journeyData={journeyData}/>
-            </section>
+                <section className="about-us-journey">
+                    <h1 className="about-us-header">
+                        Our <span className="span-about-us">Journey</span>
+                    </h1>
+                    <CarouselCard journeyData={journeyData}/>
+                </section>
 
-            <section className="about-us-services">
-                <h1 className="about-us-header">
-                    Our <span className="span-about-us">Services</span> 
-                    <Card serviceProduct={serviceProduct} />
-                </h1>
-            </section>
+                <section className="about-us-services">
+                    <h1 className="about-us-header">
+                        Our <span className="span-about-us">Services</span> 
+                        <Card serviceProduct={serviceProduct} />
+                    </h1>
+                </section>
+            
+                <section className="about-us-footer">
+                    <Footer />
+                 </section>
+
+            </div>
+          
+            
         </div>
     );
 }
