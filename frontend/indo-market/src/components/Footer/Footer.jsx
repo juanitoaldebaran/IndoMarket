@@ -1,13 +1,33 @@
 import "../Footer/Footer.css";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faPhone, faLocationDot, faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
 
 export default function Footer() {
 
-    const handleSubmit = () => {
+    const initialDataForm = {
+        name: "",
+        email: "",
+        message: "",
+    }
 
+    const [dataForm, setDataForm] = useState(initialDataForm);
+
+    const handleChange = (e) => {
+       const {name, value} = e.target;
+       setDataForm({...dataForm, [name]: value});
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+            console.log("Form submitted", dataForm);
+            setDataForm(initialDataForm);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -60,28 +80,50 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-        <form onSubmit={handleSubmit} className="form-container">
-           <h4 className="form-header">Identity Form</h4>
-           <div className="form-content">
-            <div className="first-name-input-container">
-                <label htmlFor="first-name">Name</label>
-                <input type="text" className="first-name-input" id="first-name"/>
-            </div>
-            <div className="last-name-container">
-                <label htmlFor="last-name">Last Name</label>
-                <input type="text" className="last-name-input" id="last-name"/>
-            </div>
-            <div className="business-email-container">
-                <label htmlFor="business-email">Business Email</label>
-                <input type="text" className="business-email-input" id="business-email"/>
-            </div>
-            <div className="comment-container">
-                <label htmlFor="comment">Questions/Comment</label>
-                <input type="text" placeholder="Any comments for our services?" id="comment"/>
-           </div>
-           <button className="submit-btn">Submit</button>
-           </div>
-        </form>
+
+        <div className="footer-form-container">
+            <h3 className="footer-header-form">Send Us Message</h3>
+            <form onSubmit={handleSubmit} className="footer-form">
+                <div className="name-container">
+                    <label htmlFor="name">Name</label>
+                    <input 
+                    id="name"
+                    name="name"
+                    type="text" 
+                    value={dataForm.name}
+                    onChange={handleChange}
+                    required
+                    className="footer-form-input"
+                    />
+                </div>
+                <div className="email-container">
+                    <label htmlFor="email">Email</label>
+                    <input 
+                    id="email"
+                    name="email"
+                    type="text" 
+                    value={dataForm.email}
+                    onChange={handleChange}
+                    required
+                    className="footer-form-input"
+                    />
+                </div>     
+                <div className="message-container">
+                    <label htmlFor="message">Message</label>
+                    <input 
+                    id="message"
+                    name="message"
+                    type="text" 
+                    value={dataForm.message}
+                    onChange={handleChange}
+                    required
+                    className="footer-form-input"
+                    placeholder="Please ask us questions"
+                    />
+                </div>
+                <button type="submit" className="submit-btn">Submit</button>
+            </form>
+        </div>
       </footer>
     )
 }
