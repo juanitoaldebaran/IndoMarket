@@ -17,7 +17,7 @@ export default function Footer() {
 
     const handleChange = (e) => {
        const {name, value} = e.target;
-       setDataForm({...dataForm, [name]: value});
+       setDataForm((prevData) => ({...prevData, [name]: value}));
     }
 
     const handleSubmit = (e) => {

@@ -1,0 +1,132 @@
+.edit-card-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(125, 125, 125, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .edit-card-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+  }
+  
+  .edit-card-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .edit-card-header {
+    font-size: 1.8rem;
+    color: rgb(20, 20, 255);
+    margin: 0;
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+  }
+  
+  .close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #4a5568;
+    transition: color 0.2s ease;
+  }
+  
+  .close-icon:hover {
+    color: #2d3748;
+  }
+  
+  .edit-form-container {
+    padding: 24px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .form-price,
+  .form-quantity {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input,
+  textarea {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+  }
+  
+  .form-option-button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+  
+  .button-option {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .save {
+    background-color: #38a169;
+    color: white;
+  }
+  
+  .save:hover {
+    background-color: #2f855a;
+  }
+  
+  .cancel {
+    background-color: #e53e3e;
+    color: white;
+  }
+  
+  .cancel:hover {
+    background-color: #c53030;
+  }
+  
