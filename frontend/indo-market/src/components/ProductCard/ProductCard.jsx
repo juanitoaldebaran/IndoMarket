@@ -1,3 +1,5 @@
+import "../ProductCard/ProductCard.css";
+
 export default function ProductCard({products, onEdit, onDelete}) {
 
     return (
@@ -21,15 +23,15 @@ export default function ProductCard({products, onEdit, onDelete}) {
                         <td className="product-cell">{product.details}</td>
                         <td className="product-cell">{product.quantity}</td>
                         <td className="product-cell">${product.price.toFixed(2)}</td>
-                        <td className="actions-container">
-                            <button className="edit-btn" onClick={() => onEdit(product.id)}>Edit</button>
-                            <button className="delete-btn" onClick={() => onDelete(product.id)}>Delete</button>
+                        <td className="product-cell actions">
+                            <button className="actions-btn edit-btn" onClick={() => onEdit(product.id)}>Edit</button>
+                            <button className="actions-btn delete-btn" onClick={() => onDelete(product.id)}>Delete</button>
                         </td>
                     </tr>
                 ))}
                 {products.length === 0  && (
                     <tr>
-                        <td className="empty-message">No Products Available. Add a new product to get started</td>
+                        <td className="empty-message">No Products Available.</td>
                     </tr>
                 )}
                 </tbody>
