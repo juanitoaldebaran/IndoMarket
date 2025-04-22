@@ -1,24 +1,22 @@
 import { useState } from "react"
 import ProductCard from "../../components/ProductCard/ProductCard";
 import EditCard from "../../components/EditCard/EditCard";
+import AddCard from "../../components/AddCard/AddCard";
 import "../Products/Products.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faL, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Products() {
 
-    const initialProducts = [
-        { id: 1, name: "Ferrari", details: "LaFerrari Hybrid Supercar", quantity: 3, price: 1400000 },
-        { id: 2, name: "Lamborghini", details: "Aventador SVJ", quantity: 2, price: 500000 },
-        { id: 3, name: "Porsche", details: "911 Turbo S", quantity: 5, price: 200000 }
-    ];
+    const initialProducts = [];
 
     const [products, setProducts] = useState(initialProducts);
     const [searchProduct, setSearchProduct] = useState("");
     const [filteredProducts, setFilteredProducts] = useState(initialProducts);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isEdit, setIsEdit] = useState(false);
+    const [isAdd, setIsAdd] = useState(false);
 
     const handleSearch = () => {
         try {
@@ -32,6 +30,8 @@ export default function Products() {
                 } else {
                     alert(`No products found by ${searchProduct}`);
                 }
+            } else {
+                alert("Please input a valid product name or details");
             }
         } catch (error) {
             console.log(error);
@@ -87,6 +87,21 @@ export default function Products() {
         }
     }
 
+    const handleAdd = (product) => {
+        try {
+            const newProduct = {
+                ...product, 
+                id: products.length > 0 ? products[products.length - 1].id + 1 : 1
+            }
+            const updatedProduct = [...products, newProduct];
+            setProducts(updatedProduct);
+            setFilteredProducts(updatedProduct);
+            setIsAdd(false);
+        } catch (error) {
+            console.log("Handle Add", error);
+        }
+    }
+
 
     return (
         <div className="products-container">
@@ -107,11 +122,12 @@ export default function Products() {
                     </button>
                 </form>
                 <div className="add-product-container">
-                    <button className="add-product-btn">Add Product</button>
+                    <button className="add-product-btn" onClick={() => setIsAdd(true)}>Add Product</button>
                 </div>
             </div>
             <ProductCard products={filteredProducts} onEdit={handleEdit} onDelete={handleDelete}/>
-            {isEdit && <EditCard products={selectedProduct} onSave={handleSave} onClose={() => setIsEdit(false)}/>}
+            {isEdit && <EditCard product={selectedProduct} onSave={handleSave} onClose={() => setIsEdit(false)}/>}
+            {isAdd && <AddCard onAdd={handleAdd} onClose={() => setIsAdd(false)}/>}
         </div>
     )
 }
